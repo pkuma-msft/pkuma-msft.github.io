@@ -1,9 +1,6 @@
 theme: jekyll-theme-tactile
 title: GitHub Pages for Azure Test Plans
 description: These are the "unofficial" pages on Azure Test Plans
-footer:
-  links:
-    - label: "Home"
-      url: "https://pkuma-msft.github.io/"
-    - label: "Topics"
-      url: "https://pkuma-msft.github.io/azure-test-plans/"
+footer-links:
+  email: "pkuma@microsoft.com"
+ 
