@@ -7,9 +7,7 @@ If you find an issue with this documentation, feel free to send a pull request [
 ## Topics
 Click on [Azure Test Plans Topics](/azure-test-plans/test-plan-limits.md) to take a look at all the topics.
 
-#### Resources to learn more about Azure Test Plans
-
-
+## Resources to learn more about Azure Test Plans
 - [Azure Test Plans official documentation](https://azure.microsoft.com/en-us/services/devops/test-plans/)
 
 - [Deep dive into Azure Test Plans](https://azure.microsoft.com/en-us/blog/deep-dive-into-azure-test-plans/)
