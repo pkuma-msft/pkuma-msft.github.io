@@ -1,45 +1,18 @@
-## Welcome to GitHub Pages
+## Azure Test Plans
 
-# Testing Header1
-## Testing Header 2
-### Testing Header 3
-#### Testing Header 4
-##### Testing Header 5
+Welcome to Azure Test Plans! The Azure Test Plans engineering team uses this space to document interesting tidbits, issues, workarounds and best practices related to Test Plans.
 
-You can use the [Azure Test Plans Limits](/azure-test-plans/test-plan-limits.md) to maintain and preview the content for your website in Markdown files.
+Please go here to read articles specific to above topics. You can use the [Azure Test Plans Limits](/azure-test-plans/test-plan-limits.md) to maintain and preview the content for your website in Markdown files.
 
-https://github.com/pkuma-msft/pkuma-msft.github.io/edit/master/README.md
+#### Here are some resources to learn more about Azure Test Plans
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+Azure Test Plans official documentation: https://azure.microsoft.com/en-us/services/devops/test-plans/
 
-### Markdown
+Deep dive into Azure Test Plans: https://azure.microsoft.com/en-us/blog/deep-dive-into-azure-test-plans/
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+Azure Test Plans Deep Dive on-demand session: https://info.microsoft.com/IN-AZUREPLAT-WBNR-FY19-04Apr-08-AzureTestPlans-MCW0012706_LP02OnDemandRegistration-ForminBody.html
 
-```markdown
-Syntax highlighted code block
+Exploratory and Manual Testing Scenarios: https://docs.microsoft.com/en-us/azure/devops/test/overview?view=azure-devops
 
-# Header 1
-## Header 2
-### Header 3
+Test Planning and Management with Azure Test Plans (lab): https://azuredevopslabs.com/labs/azuredevops/testmanagement/
 
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/pkuma-msft/pkuma-msft.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
