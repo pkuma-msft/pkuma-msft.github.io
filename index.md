@@ -8,13 +8,12 @@ Click on [Azure Test Plans Topics](/azure-test-plans/test-plan-limits.md) to tak
 
 #### Here are some resources to learn more about Azure Test Plans
 
-Azure Test Plans official documentation: https://azure.microsoft.com/en-us/services/devops/test-plans/
+- [Azure Test Plans official documentation](https://azure.microsoft.com/en-us/services/devops/test-plans/)
 
-Deep dive into Azure Test Plans: https://azure.microsoft.com/en-us/blog/deep-dive-into-azure-test-plans/
+- [Deep dive into Azure Test Plans](https://azure.microsoft.com/en-us/blog/deep-dive-into-azure-test-plans/)
 
-Azure Test Plans Deep Dive on-demand session: https://info.microsoft.com/IN-AZUREPLAT-WBNR-FY19-04Apr-08-AzureTestPlans-MCW0012706_LP02OnDemandRegistration-ForminBody.html
+- [Azure Test Plans Deep Dive on-demand session](https://info.microsoft.com/IN-AZUREPLAT-WBNR-FY19-04Apr-08-AzureTestPlans-MCW0012706_LP02OnDemandRegistration-ForminBody.html)
 
-Exploratory and Manual Testing Scenarios: https://docs.microsoft.com/en-us/azure/devops/test/overview?view=azure-devops
+- [Exploratory and Manual Testing Scenarios](https://docs.microsoft.com/en-us/azure/devops/test/overview?view=azure-devops)
 
-Test Planning and Management with Azure Test Plans (lab): https://azuredevopslabs.com/labs/azuredevops/testmanagement/
-
+- [Test Planning and Management with Azure Test Plans (lab)](https://azuredevopslabs.com/labs/azuredevops/testmanagement/)
