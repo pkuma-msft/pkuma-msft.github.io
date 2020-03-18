@@ -5,7 +5,7 @@ Welcome to [Azure Test Plans](https://azure.microsoft.com/en-us/services/devops/
 If you find an issue with this documentation or want to add a new page, feel free to send a pull request [here](https://github.com/pkuma-msft/pkuma-msft.github.io).
 
 ## Topics  
-Click on [Azure Test Plans Topics](/azure-test-plans/test-plan-limits.md) to take a look at all the topics.
+Click on [Azure Test Plans Topics](/azure-test-plans/index.md) to take a look at all the topics.
   
 
 ## Resources to learn more about Azure Test Plans  
