@@ -2,5 +2,5 @@ theme: jekyll-theme-tactile
 title: GitHub Pages for Azure Test Plans
 description: These are the "unofficial" pages on Azure Test Plans
 footer-links:
-  email: "pkuma@microsoft.com"
+  email: "mailto:pkuma@microsoft.com"
  
