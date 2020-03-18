@@ -1,5 +1,5 @@
 #### Is there a limit to the number of test plans, test suites, test cases and finally the number of test case steps one can create?  
-
+  
 There are no limits as such to the number of test plans in a project or the number of test suites or test cases in a test plan. There are however other forms of limits outlined below. There are also few best practices we recommend to ensure the Test Plans experience is performant and reliable.
 
 - Ensure that the test suites you have in a test plan are regularly/actively used. If a test suite is not really required in a plan, it’s best to remove it. On the same lines, to some extent, ensure that all test cases that show up within a test plan are also needed there for the test pass. Many times users keep cloning the test plan sprint over sprint with the test cases that are no longer required/valid and this ends up impacting performance later.
