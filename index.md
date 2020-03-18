@@ -8,7 +8,7 @@ If you find an issue with this documentation or want to add a new page, feel fre
 Click on [Azure Test Plans Topics](/azure-test-plans/index.md) to take a look at all the topics.
   
 
-## Resources to learn more about Azure Test Plans  
+## Learn more about Azure Test Plans  
 - [Azure Test Plans official documentation](https://azure.microsoft.com/en-us/services/devops/test-plans/)
 
 - [Deep dive into Azure Test Plans](https://azure.microsoft.com/en-us/blog/deep-dive-into-azure-test-plans/)
