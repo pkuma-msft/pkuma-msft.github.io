@@ -1,43 +1,9 @@
-## Welcome to Test Plan Limits
+#### Is there a limit to the number of test plans, test suites, test cases and finally the number of test case steps one can create?
 
-# Testing Header1
-## Testing Header 2
-### Testing Header 3
-#### Testing Header 4
-##### Testing Header 5
+There are no limits as such to the number of test plans in a project or the number of test suites or test cases in a test plan. There are however other forms of limits outlined below. There are also few best practices we recommend to ensure the Test Plans experience is performant and reliable.
 
-You can use the [editor on GitHub](https://github.com/pkuma-msft/pkuma-msft.github.io/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
-
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
-
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/pkuma-msft/pkuma-msft.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+1)	Ensure that the test suites you have in a test plan are regularly/actively used. If a test suite is not really required in a plan, it’s best to remove it. On the same lines, to some extent, ensure that all test cases that show up within a test plan are also needed there for the test pass. Many times users keep cloning the test plan sprint over sprint with the test cases that are no longer required/valid and this ends up impacting performance later.
+2)	Test suites can be nested up to 14 levels deep. But try to keep the nesting to as low as practically possible. More nesting tends to add complexity to various computations and adversely affects performance.
+3)	Since test plans and test cases are just work items underneath, they need to honor the 1000 links limit. A workitem may contain only up to 1000 links to other workitems. This can sometimes be hit in a scenario where you have a shared step which is being used in many other test cases.
+4)	If you use a query based suite, ensure that each QBS shows a reasonable number of test cases. The upper limit on this is 20,000; but again if you have a QBS that returns 20,000 test cases you will have a hard time using the test plans UX 😊
+5)	Test runner has a limitation of being able to run 100 test cases in a single test session.
