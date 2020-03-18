@@ -1,8 +1,10 @@
 ## Azure Test Plans
 
-Welcome to Azure Test Plans! The Azure Test Plans engineering team uses this space to document interesting tidbits, issues, workarounds and best practices related to Test Plans.
+Welcome to [Azure Test Plans](https://azure.microsoft.com/en-us/services/devops/test-plans/)! The Azure Test Plans engineering team uses this space to document interesting tidbits, issues, workarounds and best practices related to Test Plans.
 
-Please go here to read articles specific to above topics. You can use the [Azure Test Plans Limits](/azure-test-plans/test-plan-limits.md) to maintain and preview the content for your website in Markdown files.
+If you find an issue with this documentation, feel free to send a pull request [here](https://github.com/pkuma-msft/pkuma-msft.github.io).
+
+Click on [Azure Test Plans Topics](/azure-test-plans/test-plan-limits.md) to take a look at all the topics.
 
 #### Here are some resources to learn more about Azure Test Plans
 
