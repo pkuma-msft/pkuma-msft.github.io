@@ -14,6 +14,6 @@ Well, there are no official numbers or limits defined for these. But we've seen 
 **Number of Query based suites (QBS): ~5**  
 
 ##### Test Cases/Test Points
-We recommend anywhere between 200-300 test points to show up per test suite. Now depending on the number of configuration you have for a test plan or test suite, the number can be adjusted accordingly for test cases.
+We recommend anywhere between 200-300 test points to show up per test suite. Now depending on the number of configurations you have for a test plan or test suite, the number can be adjusted accordingly for test cases.
 For e.g. if I have 150 test cases that need to be executed across two configurations; I'd end up with 300 test points.
 
