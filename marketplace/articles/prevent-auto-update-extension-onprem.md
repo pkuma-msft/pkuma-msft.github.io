@@ -1,4 +1,4 @@
-#### Disabling auto-update of extensions on TFS on-premise (Azure DevOps Server)
+#### Disabling auto-update of extensions on TFS on-premise (Azure DevOps Server)  
 
 When you install an extension from [Marketplace](https://marketplace.visualstudio.com) on a TFS server or Azure DevOps Server; the extensions get auto-updated as the publisher pushes new versions of the extension on Marketplace. This happens if your machine hosting the TFS server is connected to the internet. A scheduled job on TFS server checks for updates regularly and updates the extensions.
 
