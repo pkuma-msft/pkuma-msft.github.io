@@ -15,3 +15,7 @@ The issue should get resolved once you relaunch the browser.
 If you're using Firefox or Edge Chromium or any other favorite browser of yours, you shouldn't be seeing this issue.  
 
 We will take up the work to react to this change in Chrome in the coming sprint.
+
+Related links  
+[https://developercommunity.visualstudio.com/content/problem/946112/in-progress-test-runs-are-being-created-when-a-tes.html](https://developercommunity.visualstudio.com/content/problem/946112/in-progress-test-runs-are-being-created-when-a-tes.html)  
+[https://developercommunity.visualstudio.com/content/problem/946291/testcase-outcome-stuck-on-in-progress-state-after-1.html](https://developercommunity.visualstudio.com/content/problem/946291/testcase-outcome-stuck-on-in-progress-state-after-1.html)
