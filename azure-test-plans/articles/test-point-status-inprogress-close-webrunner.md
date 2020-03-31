@@ -1,6 +1,6 @@
 #### Test Point status stays as in-porgress when you close Web Runner using the close button
 
-Chrome 80 disabled a sync-XHR feature flag, allow-sync-xhr-in-page-dismissal, which prevents any synchronous network calls from happening during page unload or close event. You can read more about this here [https://www.chromestatus.com/features/4664843055398912](https://www.chromestatus.com/features/4664843055398912)
+Chrome 80 disabled a sync-XHR feature flag, ```allow-sync-xhr-in-page-dismissal```, which prevents any synchronous network calls from happening during page unload or close event. You can read more about this here [https://www.chromestatus.com/features/4664843055398912](https://www.chromestatus.com/features/4664843055398912)
 
 Because of this, the network call that used to happen when you closed web runner is now **not** happening. It is during this call that we used to clean-up an in-progress run if there were no updates to it.
  
