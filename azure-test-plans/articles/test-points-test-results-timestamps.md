@@ -40,7 +40,7 @@ The ```duration``` field on the other hand was being multiplied by 10,000 on the
 - Now if the server treated this value as ticks, it may have been alright still but after the above code change went live, the duration value was being read in milliseconds; so the value really became 10,000*10,000 milliseconds!
 - Now depending on how long you kept the web runner running for the manual test run, the computed value would be far ahead in the future; like you see in the screenshots above.  
 
-The code change mentioned above went live around 22nd Jan, 2020 and the actual fix for the issue went live on 22nd Feb, 2020. All manual test runs that were done within this window all had issues with duration timestamps.
+The code change mentioned above went live around 14th Jan, 2020 and the fix for the issue went live on 24th Feb, 2020. All manual test runs that were done within this window all had issues with duration timestamps.
 
 #### Snowball effect
 What further amplified and made this problem worse,
