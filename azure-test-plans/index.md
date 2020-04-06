@@ -2,4 +2,4 @@
 [Azure Test Plans Limits](/test-plan-limits.md)  
 [Show Test Points from Child Suites](/articles/show-points-from-child-suites.md)  
 [Test Point Status stays as In-progress when you close Web Runner using the close button](/articles/test-point-status-inprogress-close-webrunner.md)  
-[Test Points, Test Results and Timestamps](/articles/test-points-test-results-timestamps.md)  
+[RCA: Test Points, Test Results and Timestamps](/articles/test-points-test-results-timestamps.md)  
