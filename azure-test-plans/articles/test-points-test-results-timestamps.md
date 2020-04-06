@@ -24,7 +24,8 @@ This problem was caused by a seemingly innocuous change that was made for the au
 
 The bug in automated scenario was that the test results' duration was being set to 0 even though the client was passing the duration value when updating the test result status. The fix was simple, use the duration value to compute the results' ```CompletedDate```. Here's the snippet of code that fixed this issue:
 ```
-if (context.IsFeatureEnabled(DurationPriorityWhenPresent) && resultModel.DurationInMs > 0)
+if (context.IsFeatureEnabled(DurationPriorityWhenPresent) && 
+      resultModel.DurationInMs > 0)
 {
     resultUpdateRequest.TestCaseResult.DateCompleted =
       resultUpdateRequest.TestCaseResult.DateStarted.AddTimeSpan(
