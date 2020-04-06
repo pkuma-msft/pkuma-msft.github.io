@@ -49,6 +49,7 @@ What further amplified and made this problem worse,
 - We have a scheduled sync-job that runs on TFS and pulls in data about test points (and test results) from TCM service and updates it in TFS
 - All of Manual Test analytics, including ```Progress Report```, is powered by data from TFS
 - Now since the wrong timestamps got sync'ed to TFS as well, it broke a lot of Manual Test scenarios
+- Manual test analytics does the aggregation at a daily granularity, and the wrong timestamps messed up this aggregation logic
 
 #### Fix
 The fix was simple once we knew what the issue was. We added a conditional check in the above code so that it would update the date only if the run was for automated tests.
