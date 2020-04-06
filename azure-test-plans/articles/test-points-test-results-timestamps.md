@@ -33,11 +33,11 @@ if (context.IsFeatureEnabled(DurationPriorityWhenPresent) &&
 }
 ```
 
-Now, due to unknown historical reasons, Manual Testing scenario had a weird logic when it came to computing the duration of the test result. Manual testing always used the ```startDate``` and ```completedDate``` fields separately and both these fields would be sent from the client side code.  
+Now, due to unknown historical reasons (a.k.a legacy code), Manual Testing scenario had a weird logic when it came to computing the duration of the test result. Manual testing always used the ```startDate``` and ```completedDate``` fields separately and both these fields would be sent from the client side code.  
 
-The ```duration``` field on the other hand was being multiplied by 10,000 on the client side and sent to server. I'm assuming whoever did this wanted to convert the value from millisecond to ticks maybe. And when the client wanted to render the duration it would divide the value from server by 10,000 and then treat the resultant value in milliseconds and show it appropriately. Things were all working fine until the above change went it. When the above change went live, this is what happened for manual testing scenario.  
+The ```duration``` field on the other hand was being multiplied by 10,000 on the client side and sent to server. I'm assuming whoever did this wanted to convert the value from milliseconds to ticks maybe. And when the client wanted to render the duration on a web page it would divide the value from server by 10,000 and then treat the resultant value in milliseconds and show it appropriately. Things were all working fine until the above change went in. When the above change went live, this is what happened for manual testing scenario.  
 - If you ran the web runner for 10 seconds (= 10,000ms); the client would call the results API by multiplying this duration by 10,000. So the value that would get sent to the server was 10,000 * 10,000. 
-- Now if the server treated this value as ticks, it may have been alright still but with the above change, the duration value was being read in milliseconds; so the value really became 10,000*10,000 Milliseconds!
+- Now if the server treated this value as ticks, it may have been alright still but after the above code change went live, the duration value was being read in milliseconds; so the value really became 10,000*10,000 milliseconds!
 - Now depending on how long you kept the web runner running for the manual test run, the computed value would be far ahead in the future; like you see in the screenshots above.  
 
 The code change mentioned above went live around 22nd Jan, 2020 and the actual fix for the issue went live on 22nd Feb, 2020. All manual test runs that were done within this window all had issues with duration timestamps.
