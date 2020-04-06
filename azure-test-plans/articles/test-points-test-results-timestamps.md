@@ -22,7 +22,7 @@ Before we delve into what caused this issue and how we fixed it, let's spend som
 #### Root Cause
 This problem was caused by a seemingly innocuous change that was made for the automated test results scenario. Unfortunately, the code path was also used for Manual tests and that broke our scenario.
 
-The bug in automated scenario was that the test results' duration was being set to 0 even though the client was passing the duration value when updating the test result status. The fix was simple, use the duration value to compute the results' ```CompletedDate```. Here's the snippet of code that fixed this issue:
+The bug in automated scenario was that the test results' duration was being set to 0 even though the client was passing the duration value when updating the test result data. The fix was simple, use the duration value to compute the results' ```CompletedDate```. Here's the snippet of code that fixed this issue:
 ```
 if (context.IsFeatureEnabled(DurationPriorityWhenPresent) && 
       resultModel.DurationInMs > 0)
