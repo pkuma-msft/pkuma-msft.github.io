@@ -13,9 +13,9 @@ Before we delve into what caused this issue and how we fixed it, let's spend som
 
 - In the Progress Report page, users would see that the count on the trend chart does not match the count in the Summary tab. For example, in the below screenshot the numbers in the Outcome trend chart add up to 8311; but the Summary card we show the total as 8308. So there is a difference of 3 test points.
 ![Progress report count mismatch](../images/progress-report-count-mismatch.png)  
-- The test results REST API was returning incorrect value for ```completedDate``` and ```durationInMs``` fields.
+- The test results REST API was returning incorrect value for ```completedDate``` and ```durationInMs``` fields.  
 ![Test result API incorrect completedDate](../images/test-result-incorrect-completed-date.png)
-- The Test Progress Analytics API would return a wrong date.
+- The Test Progress Analytics API would return a wrong date.  
 ![Analytics API wrong date](../images/analytics-api-wrong-date.png)
 - Any test point or test result related chart created for a suite in the ```Charts``` tab would again show similar mismatches in terms of number of test points
 
@@ -26,7 +26,9 @@ The bug in automated scenario was that the test results' duration was being set 
 ```
 if (context.IsFeatureEnabled(DurationPriorityWhenPresent) && resultModel.DurationInMs > 0)
 {
-    resultUpdateRequest.TestCaseResult.DateCompleted = resultUpdateRequest.TestCaseResult.DateStarted.AddTimeSpan(TimeSpan.FromMilliseconds(resultModel.DurationInMs));
+    resultUpdateRequest.TestCaseResult.DateCompleted =
+      resultUpdateRequest.TestCaseResult.DateStarted.AddTimeSpan(
+        TimeSpan.FromMilliseconds(resultModel.DurationInMs));
 }
 ```
 
