@@ -12,7 +12,13 @@ To report issues, bugs or any other suggestions, you can again write to us at [i
 You will find the import/export option in the ```Define``` tab in the new Test Plans experience, as shown below.
 ![Import/export option in Define tab](../images/import-export-option-ui.png)  
   
-The ```Down``` arrow lets you export the test cases in the current suite into a CSV file and save it on disk. The ```Up``` arrow lets you upload a CSV file and import the test cases in to the currently selected suite. Currently, all the test cases within a Suite get exported and selecting only a subset of the test cases has no effect. We are looking to add support to export only selected test cases in a future update.
+The ```Down``` arrow lets you export the test cases in the current suite into a CSV file and save it on disk. The ```Up``` arrow lets you upload a CSV file and import the test cases in to the currently selected suite. Currently, all the test cases within a Suite get exported and selecting only a subset of the test cases has no effect. We are looking to add support to export only selected test cases in a future update.  
+
+Here is a GIF showing how you can update an existing test case using export/import option. (*open in new tab for better viewing*)  
+![GIF showing updation of existing test case](../images/import-export-demo-update-existing.gif)
+
+The GIF below shows how you can use the import option to add new test cases to a suite. (*open in new tab for better viewing*)
+![GIF showing adding new test cases via import](../images/import-export-demo-add-new.gif)
 
 #### How do I add or import new test cases to a suite?
 By importing a CSV file where the first column ```ID``` field is blank, you can create new test cases. The easiest way to do this is to export test cases, edit them in excel, make sure you delete the ID column value and leave it blank and import this CSV file into a suite. The ```ID``` column denotes the test case id. If the ID column contains a valid test case ID, then the test case will get updated.
