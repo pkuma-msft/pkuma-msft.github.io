@@ -33,4 +33,4 @@ You can create a new Query based suite in a test plan, modify the query as per y
 - Delete operation is not supported. If you delete or remove a test case from CSV and import it; the test case will not get deleted from the suite or team project.
 - When creating new test cases via importing, you must set the state of the test case to ```Active```. Other state values during test case creation are not supported.  
 
-Feel free to reach out to us at [importexporthelp@microsoft.com](mailto:importexporthelp@microsoft.com?subject=Import/export%20suggestions%) for any suggestions or feedback.  
+Feel free to reach out to us at [importexporthelp@microsoft.com](mailto:importexporthelp@microsoft.com?subject=Import/export%20suggestion) for any suggestions or feedback.  
