@@ -31,6 +31,6 @@ You can create a new Query based suite in a test plan, modify the query as per y
 - Local parameters and Shared Parameters in a test case are not supported while exporting or importing.
 - Graceful error handling and data validation is not supported. This is work in progress and will get better with future updates.
 - Delete operation is not supported. If you delete or remove a test case from CSV and import it; the test case will not get deleted from the suite or team project.
-- When creting new test cases via importing, you must set the state of the test case to ```Active```. Other state values during test case creation are not supported.  
+- When creating new test cases via importing, you must set the state of the test case to ```Active```. Other state values during test case creation are not supported.  
 
 Feel free to reach out to use at [importexporthelp@microsoft.com](mailto:importexporthelp@microsoft.com?subject=Import/export%20suggestions%) for any suggestions or feedback.  
