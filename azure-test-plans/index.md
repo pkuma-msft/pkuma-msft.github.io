@@ -3,3 +3,4 @@
 [Show Test Points from Child Suites](/articles/show-points-from-child-suites.md)  
 [Test Point Status stays as In-progress when you close Web Runner using the close button](/articles/test-point-status-inprogress-close-webrunner.md)  
 [RCA: Test Points, Test Results and Timestamps](/articles/test-points-test-results-timestamps.md)  
+[Test case import/export using CSV](/articles/testcase-import-export-csv.md)
