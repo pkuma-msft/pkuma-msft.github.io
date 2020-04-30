@@ -22,6 +22,7 @@ By default we export all the columns that are visible currently in the suite. If
 
 #### How do I export all my test cases from a project?
 Since we export all test cases from the current suite this is currently not possible. But there is a work around!  
+
 You can create a new Query based suite in a test plan, modify the query as per your requirement; wait for the test cases to load in the new QBS and then export them all. Although you can use this work around to export all the test cases in a team project, we would highly recommend for you to use as specific a query as possible. If your query returns a large number of test cases (in the range of couple of thousands) then the performance of the page will get degraded. **If you created the QBS temporarily to export the test cases, make sure you delete the Query based suite!**  
 
 ## What is not supported?  
