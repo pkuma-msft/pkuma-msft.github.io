@@ -1,5 +1,10 @@
 ### Test case import and export using CSV
 
+```
+[Update: 8th June 2020]
+Shared steps, local parameters and shared parameters are now supported in the import/export feature! Do give this a try and let us know your feedback.
+```  
+
 We are very excited to release the import/export feature for test cases in early preview! This preview will also enable us to get early feedback and address any major issues or bugs. Please read on to find details about how you can opt-in to this feature, where can you report bugs etc.  
 
 #### How do I opt-in to this feature?  
@@ -32,9 +37,11 @@ Since we export all test cases from the current suite this is currently not poss
 You can create a new Query based suite in a test plan, modify the query as per your requirement; wait for the test cases to load in the new QBS and then export them all. Although you can use this work around to export all the test cases in a team project, we would highly recommend for you to use as specific a query as possible. If your query returns a large number of test cases (in the range of couple of thousands) then the performance of the page will get degraded. **If you created the QBS temporarily to export the test cases, make sure you delete the Query based suite!**  
 
 ## What is not supported?  
-- Shared steps in test cases is not supported. **WARNING: If your test cases contain shared steps, then exporting and importing the test case may cause you to lose test case steps.**
+- [Update 8th Jun 2020] Shared steps are now supported!  
+~~Shared steps in test cases is not supported. **WARNING: If your test cases contain shared steps, then exporting and importing the test case may cause you to lose test case steps.**~~
 - Retaining formatting of the test steps is not supported. **WARNING: If you rely on the test step formatting, then exporting-importing will make you lose the formatting!! Please do not use the import/export feature in this case.**
-- Local parameters and Shared Parameters in a test case are not supported while exporting or importing.
+- [Update 8th Jun 2020] Local parameters and Shared parameters are now supported!  
+~~Local parameters and Shared Parameters in a test case are not supported while exporting or importing.~~
 - Graceful error handling and data validation is not supported. This is work in progress and will get better with future updates.
 - Delete operation is not supported. If you delete or remove a test case from CSV and import it; the test case will not get deleted from the suite or team project.
 - When creating new test cases via importing, you must set the state of the test case to ```Design```. Other state values during test case creation are not supported.  
