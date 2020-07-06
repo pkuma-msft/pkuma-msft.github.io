@@ -1,11 +1,15 @@
 ### Test case import and export using CSV
 
+[**Update: 6th July 2020**]
+This feature is now enabled on all Organization!
+
 [**Update: 8th June 2020**]
 Shared steps, local parameters and shared parameters are now supported in the import/export feature! Do give this a try and let us know your feedback.  
 
 We are very excited to release the import/export feature for test cases in early preview! This preview will also enable us to get early feedback and address any major issues or bugs. Please read on to find details about how you can opt-in to this feature, where can you report bugs etc.  
 
 #### How do I opt-in to this feature?  
+**This is no more required since the feature is now enabled on all Organizations!**  
 To opt-in to import/export, send us an e-mail at [importexporthelp@microsoft.com](mailto:importexporthelp@microsoft.com?subject=Import/export%20feature%20enable%20request&body=My%20Azure%20DevOps%20Organization%20name%20is:). Please ensure you **include your Azure DevOps organization name in the email**. We will reply back to you as soon as the feature is enabled on your organization.  
 
 #### Where do I report issues or bugs?  
