@@ -44,8 +44,8 @@ You can create a new Query based suite in a test plan, modify the query as per y
 - Retaining formatting of the test steps is not supported. **WARNING: If you rely on the test step formatting, then exporting-importing will make you lose the formatting!! Please do not use the import/export feature in this case.**
 - [Update 8th Jun 2020] Local parameters and Shared parameters are now supported!  
 ~~Local parameters and Shared Parameters in a test case are not supported while exporting or importing.~~
-- [Update 6th July 2020] Most common error scenarios are now handled properly!
-~~- Graceful error handling and data validation is not supported. This is work in progress and will get better with future updates.
+- [Update 6th July 2020] Most common error scenarios are now handled properly!  
+~~Graceful error handling and data validation is not supported. This is work in progress and will get better with future updates.~~
 - Delete operation is not supported. If you delete or remove a test case from CSV and import it; the test case will not get deleted from the suite or team project.
 - When creating new test cases via importing, you must set the state of the test case to ```Design```. Other state values during test case creation are not supported.  
 
