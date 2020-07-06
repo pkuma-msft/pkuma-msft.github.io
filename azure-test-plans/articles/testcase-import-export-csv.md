@@ -1,7 +1,7 @@
 ### Test case import and export using CSV
 
 [**Update: 6th July 2020**]
-This feature is now enabled on all Organization!
+This feature is now enabled on all Organizations!
 
 [**Update: 8th June 2020**]
 Shared steps, local parameters and shared parameters are now supported in the import/export feature! Do give this a try and let us know your feedback.  
