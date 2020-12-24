@@ -1,4 +1,4 @@
-[Azure Test Plans: Best Practices](/best-practices.md)
+[Azure Test Plans: Best Practices](/best-practices.md)  
 [Data Discrepancy: Scenarios and Fixes](/articles/data-discrepancy-scenarios-and-fixes.md)
 [Azure Test Plans Limits](/test-plan-limits.md)  
 [Show Test Points from Child Suites](/articles/show-points-from-child-suites.md)  
