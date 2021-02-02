@@ -10,13 +10,9 @@ We are very excited to release the import/export feature for test cases in early
 
 #### How do I opt-in to this feature?  
 **This is no more required since the feature is now enabled on all Organizations!**  
-To opt-in to import/export, send us an e-mail at [importexporthelp@microsoft.com](mailto:importexporthelp@microsoft.com?subject=Import/export%20feature%20enable%20request&body=My%20Azure%20DevOps%20Organization%20name%20is:). Please ensure you **include your Azure DevOps organization name in the email**. We will reply back to you as soon as the feature is enabled on your organization.  
-
-#### Where do I report issues or bugs?  
-To report issues, bugs or any other suggestions, you can again write to us at [importexporthelp@microsoft.com](mailto:importexporthelp@microsoft.com?subject=Import/export%20bug%20report&body=<Please%20provide%20detailed%20description%20of%20the%20issue%20and%20attach%20the%20CSV%20file%20if%20you%20can>)
 
 #### Feature description
-You will find the import/export option in the ```Define``` tab in the new Test Plans experience, as shown below.
+Make sure you have [Basic + Test Plans](https://docs.microsoft.com/en-us/azure/devops/organizations/billing/buy-basic-access-add-users?view=azure-devops#assign-users-basic-or-basic--test-plans) license. Select any static suite in the new Test Plans experience. You will find the import/export option in the ```Define``` tab, as shown below. 
 ![Import/export option in Define tab](../images/import-export-option-ui.png)  
   
 The ```Down``` arrow lets you export the test cases in the current suite into a CSV file and save it on disk. The ```Up``` arrow lets you upload a CSV file and import the test cases in to the currently selected suite. Currently, all the test cases within a Suite get exported and selecting only a subset of the test cases has no effect. We are looking to add support to export only selected test cases in a future update.  
@@ -48,5 +44,4 @@ You can create a new Query based suite in a test plan, modify the query as per y
 ~~Graceful error handling and data validation is not supported. This is work in progress and will get better with future updates.~~
 - Delete operation is not supported. If you delete or remove a test case from CSV and import it; the test case will not get deleted from the suite or team project.
 - When creating new test cases via importing, you must set the state of the test case to ```Design```. Other state values during test case creation are not supported.  
-
-Feel free to reach out to us at [importexporthelp@microsoft.com](mailto:importexporthelp@microsoft.com?subject=Import/export%20suggestion) for any suggestions or feedback.  
+- Test results are not exported or imported.
