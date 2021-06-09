@@ -129,6 +129,15 @@ This ensures that we get the valid outcome copied to TFS point table too.
 
   After a few rounds of discussion, we reached with a solution to the problem but that required more sproc changes. So, we came to a decision to not go ahead with the changes until we received more feedbacks for similar issues, as this was also reported by only one customer and is sort of a one-off scenario. 
 
+#### Case 4
+#### Reason:
+#### When a point has simultaneously executed runs
+
+- A run is started for a test point (runId r1). Before this test point execution is completed, another run with runId r2 is created for this point. So we have r2 > r1. If r2 completes before r1 with outcome1, and later r1 completes with outcome2. Execute tab and charts will show outcome1(outcome from greatest runId) while progress report will show outcome2 (outcome based on last completed time stamp).  
+
+- Most likely scenario for this to occur is when a particular point was attempted to be executed using web runner, but before saving and closing this, the same point was also marked with outcome from UI / using update test points API. In this case, outcome marked in UI shows up in execute tab and charts but progress report would show outcome marked in web runner. Or when multiple testers are executing the same point and causing simultaneous runs to exist for the same point.
+
+- This will happen when execution is done from UI and not when done from rest APIs.
 
 ### Scenario 3: Discrepancy between Execute tab and Progress Report/Charts 
 
