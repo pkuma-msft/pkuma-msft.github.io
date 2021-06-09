@@ -139,6 +139,10 @@ This ensures that we get the valid outcome copied to TFS point table too.
 
 - This will happen when execution is done from UI and not when done from rest APIs.
 
+#### Fix:
+Currently working on fix for this scenario. The issue arises since TFS contains last received outcome, while TCM returns the outcome for a points based last executed run. Working towards ensuring TCM also returns outcome based on completed time stamp.   
+
+
 ### Scenario 3: Discrepancy between Execute tab and Progress Report/Charts 
 
 #### Reason:
