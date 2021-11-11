@@ -7,3 +7,4 @@
 [Test case import/export using CSV](/articles/testcase-import-export-csv.md)  
 [Fix a Query Based Suite's query using REST API](/articles/fix-query-based-suite-query.md)  
 [Azure Test Plans Scenarios](/articles/azure-test-plans-scenarios.md)  
+[Common User Scenarios KB](/articles/common-user-scenarios.md)  

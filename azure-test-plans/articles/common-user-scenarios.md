@@ -6,21 +6,21 @@ Customer often gets confused that they have lost the results or active test poin
 
 1) Test point is a combination of test case with tester and configuration. Assigning n testers from "Assign testers to run all tests" option will create n times test points.
 
- ![assign_tester1](images/azure-test-plans-scenarios/assign_tester1.gif)
+ ![assign_tester1](../images/azure-test-plans-scenarios/assign_tester1.gif)
 
 2) If some testers are removed later, test points corresponding to those testers are marked as inactive and not shown in the execute tab. If later that tester is again assigned, then new test point is not created. Only existing inactive test point is marked as active and shows up on execute tab with the same outcome.
 
 D:\GitRepo\pkuma-msft.github.io\azure-test-plans\images\azure-test-plans-scenarios\assign_config.gif
-![assign_tester2](images/azure-test-plans-scenarios/assign_tester2.gif)
+![assign_tester2](../images/azure-test-plans-scenarios/assign_tester2.gif)
 
 
 3) Same logic is valid for configuration, if configuration is assigned back for which inactive test points already exist then those test points will just be mark back as active with the same old outcome.
 
-![assign_config](images/azure-test-plans-scenarios/assign_config.gif)
+![assign_config](../images/azure-test-plans-scenarios/assign_config.gif)
 
 4) Same thing can happen from define tab as well. If we change the configuration for test cases (windows10 -> config2 in below gif) from define tab, the new test points gets created, and marked points become inactive and are not shown. But when we again go back to old configuration (windows10), those inactive points again become active and old execution state is displayed.
 
-![mismatch](images/azure-test-plans-scenarios/mismatch.gif)
+![mismatch](../images/azure-test-plans-scenarios/mismatch.gif)
 
  
 
