@@ -1,7 +1,7 @@
-Since Feb-Mar 2020, we started getting a number of tickets where there was some inconsistency between: 
-   1. Charts and Execute tab/Progress Report
-   2. Progress Report and Charts/Execute tab 
-   3. Execute tab and Progress Report/Charts 
+Since around Feb/Mar 2020, we started getting a number of tickets where there was some inconsistency between: 
+   1. Charts and Execute tab
+   2. Progress Report and Charts 
+   3. Execute tab and Progress Report 
 
 
 ## Possible reason for the sudden increase in the number of data discrepancy issues: 
