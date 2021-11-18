@@ -1,3 +1,5 @@
+Common User Scenarios KB
+
 ## Common user scenarios that are undocumented, for easy reference.
 
 
@@ -10,7 +12,6 @@ Customer often gets confused that they have lost the results or active test poin
 
 2) If some testers are removed later, test points corresponding to those testers are marked as inactive and not shown in the execute tab. If later that tester is again assigned, then new test point is not created. Only existing inactive test point is marked as active and shows up on execute tab with the same outcome.
 
-D:\GitRepo\pkuma-msft.github.io\azure-test-plans\images\azure-test-plans-scenarios\assign_config.gif
 ![assign_tester2](../images/azure-test-plans-scenarios/assign_tester2.gif)
 
 
