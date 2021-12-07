@@ -25,7 +25,7 @@ Customer often gets confused that they have lost the results or active test poin
 
  
 
-### Copy test cases [Design doc link](https://microsoft.sharepoint.com/teams/DD_TestingTools/_layouts/15/Doc.aspx?sourcedoc={0debd44e-c026-482c-86d5-cc5eec7e133c}&action=edit&wd=target%28TestHubRefresh-New.one%7C3aef3f86-5716-4638-bd49-eae4ed695ff9%2FDesign%20Copy%20TestCases%20in%20Define%20Tab%7C2803f02c-817d-4df7-a39f-35414b62701a%2F%29&wdorigin=703)
+### Copy test cases
 - Supported only if the target suite is a static suite. (Doesn't work if we try to copy test cases to an RBS or QBS)
 
 ### Importing Requirements Based Suites
