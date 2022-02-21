@@ -6,9 +6,9 @@ Since around Feb/Mar 2020, we started getting a number of tickets where there wa
 
 ## Possible reason for the sudden increase in the number of data discrepancy issues: 
 
-Most of the cases that we observed were reported only by a few customers. However, the first type of discrepancy, I.e., **between Charts and Execute tab/Progress report**, was reported by many users. So, this is something we needed to figure out why started happening suddenly. 
+Most of the cases that we observed were reported only by a few customers. However, the first type of discrepancy, i.e., **between Charts and Execute tab/Progress report**, was reported by many users. So, this is something we needed to figure out as to why it started happening suddenly. 
 
-- One thing to note is that the dual-write feature for writing results both in TCM and TFS was implemented sometime during April 2019. 
+- We fetch the data for the UI from two services namely TFS and TCM. One thing to note is that the dual-write feature for writing results both in TCM and TFS was implemented sometime during April 2019. 
  
 - Since the default retention period for keeping test runs and results is 1 year, exactly after 1 year, retention started kicking in for all the users, who were using the default retention settings. 
  
@@ -18,7 +18,7 @@ Most of the cases that we observed were reported only by a few customers. Howeve
 
 
 ## Opening and closing of the web-runner: 
-Before Discussing all the scenarios and their fixes in details, let us first understand the major functions carried out from the opening of the web-runner to its closing. 
+Before discussing all the scenarios and their fixes in details, let us first understand the major functions carried out from the opening of the web-runner to its closing. 
 
 - The user action to launch the web-runner triggers the creation of 'in progress' test runs, both in TFS and TCM. 
 
@@ -30,7 +30,7 @@ Before Discussing all the scenarios and their fixes in details, let us first und
 
   - The 'End' API is called, which first fetches the latest result associated with the test run from TCM and checks whether the result was completed or not. This is done to make sure whether deletion is required or not. 
 
-  - If deletion is required, an abort function is called with the run id and the fetched results to perform the required operations. In TCM, the 'in progress' runs and results are deleted and the previous outcome is copied again in pointResultDetails. This outcome is then used to overwrite the result in TFS point table.
+  - If deletion is required, an abort function is called with the run id and the fetched results to perform the required operations. In TCM, the 'in progress' runs and results are deleted and the previous outcome is copied back and the same is overwritten in TFS.
 
 
 ![End API flow](../images/azure-test-plans-scenarios/web-runner.png)
@@ -41,19 +41,26 @@ Before Discussing all the scenarios and their fixes in details, let us first und
 ### Scenario 1: Discrepancy between Charts and Execute tab/Progress Report 
 
 #### Reason:
-This issue came up for users when the **retention** period for keeping test results (default 365 days) completed. The problem was due to the results getting cleaned from TCM due to retention kicking in but staying as it is in TFS. This causes discrepancy between progress report(gets data from TFS) and charts(gets data from TCM). In addition to that, though execute tab users **'getTestPointsAPI'** call to fetch outcome data from TCM, when it  receives NULL results from TCM, it used to send outcomes returned from TFS in API responses, causing execute tab to also show TFS data. 
+This issue came up for users when the **retention** period for keeping test results (default 365 days) completed. The problem was due to the results getting cleaned from TCM due to retention kicking in but staying as it is in TFS. This causes discrepancy between progress report(gets data from TFS) and charts(gets data from TCM). In addition to that, though execute tab fetches outcome data from TCM, when it receives NULL results from TCM, it used to send outcomes returned from TFS in API responses, causing execute tab to also show TFS data. 
 
 ![Discrepancy scenario 1](../images/azure-test-plans-scenarios/discrepancy-scenario1.png)  
  
 #### Fix:
 This was fixed in two steps. 
 
-- [First](https://dev.azure.com/mseng/AzureDevOps/_git/AzureDevOps/pullrequest/564886?_a=files), to fix data shown on execute tab, for the **getTestPointsAPI**, we stopped using outcomes from TFS, **when we received NULL values from TCM and returned NULL itself instead**. 
+- In the First step (AT layer), to fix data shown on execute tab, we stopped using outcomes from TFS, **when we received NULL values from TCM and returned NULL itself instead**. 
 
-- In the [second step](https://dev.azure.com/mseng/AzureDevOps/_git/AzureDevOps/pullrequest/568737?_a=files), we made a change to **start writing NULL values in TFS DB when we received NULL from TCM**. This results in an on-demand clean-up of the results from TFS that were already cleaned up from TCM, due to retention. This fixed the data shown on progress reports. 
+- In the second step (DB layer) (Overwrite TFS), we made a change to **start writing NULL values in TFS DB when we received NULL from TCM**. This results in an on-demand clean-up of the results from TFS that were already cleaned up from TCM, due to retention. This fixed the data shown on progress reports. 
 
-Details of discussion [here](https://microsoft.sharepoint.com/teams/DD_TestingTools/_layouts/15/Doc.aspx?sourcedoc={0debd44e-c026-482c-86d5-cc5eec7e133c}&action=edit&wd=target%28TestHubRefresh-New.one%7C3aef3f86-5716-4638-bd49-eae4ed695ff9%2FDesign%20TCM%20TFS%20Point%20Outcome%20Mismatch%20-%20%20retention%20setting%7Cfe91920e-37ce-47c7-bc5c-cc203fec2b69%2F%29&wdorigin=703)
- 
+	- This would remove mistmatch between TCM and TFS whenever execute tab is loaded, and progress report would be in sync with execute tab and charts.
+	
+	- This would not be a performance issue since this is a one time thing only for points returning NULL from TCM.
+
+#### Drawbacks of our approach:
+
+- We are fixing data in TFS on demand (whenever execute tab is loaded) (This method was finalized considering that cleaning up TFS table as part of TCM clean up job will be a bigger effort(since it will require a cross service communication)).
+
+-   We will be setting the result outcome to NULL in TFS but last updated time would be current UTC(when user loads the execute tab) and not the time when the run was deleted from TCM table.
  
 ### Scenario 2: Discrepancy between Progress Report and Charts/Execute tab 
  
@@ -68,9 +75,9 @@ Details of discussion [here](https://microsoft.sharepoint.com/teams/DD_TestingTo
 - Due to the missing result parameter to the API, which is usually sent through the 'End' API flow, the deletion takes place only in TCM but not in TFS, as in TFS we send the old valid result from TCM to overwrite the 'in progress' one. 
 
 #### Fix:
-In the abort function, a [change](https://dev.azure.com/mseng/AzureDevOps/_git/AzureDevOps/pullrequest/566399?_a=files) was made to fetch the latest results from TCM, if they were not provided.  
+In the abort function, a change was made to fetch the latest results from TCM, if they were not provided.  
  
-This ensures that we get the valid outcome copied to TFS point table too. 
+This ensures that we get the valid outcome copied to TFS table too. 
 
 #### Case 2
 #### Reason:
@@ -90,7 +97,6 @@ This ensures that we get the valid outcome copied to TFS point table too.
   - In the first case, **the payload has the plan id**, which causes the point to be updated in TFS tables but some checks in the TCM sproc prevent changes in the TCM tables. 
 
   - In the second case, **the plan id is set to 0 in the payload**, which prevents changes to TFS tables but there are no checks in the TCM sproc being used and hence, results are overwritten in TCM tables.
-    See [here](https://dev.azure.com/mseng/_git/AzureDevOps?path=%2FTfs%2FService%2FTestManagement%2FServer%2FService%2FPoints%2FModel%2FTestPointOutcomeHelper.cs&version=GBmaster&line=52&lineEnd=52&lineStartColumn=1&lineEndColumn=44&lineStyle=plain&_a=contents).
  
 #### Fix:
 - The first scenario of single test result analysis can be taken care of, **by removing the plan id from the request payload**, since it is not required to update the comment. The second scenario would require some other changes, which haven't been thought of yet. 
@@ -110,16 +116,16 @@ This ensures that we get the valid outcome copied to TFS point table too.
 
   - Now, **if the point P1 is marked manually**, its latest outcome should be the manual one. 
 
-  - However, when the execution for P2 completes, **both the automated results are copied into the TCM pointResultDetails table**, not taking into account the completed timestamp for the automated result of P1, although it was less than that of the manual run. 
+  - However, when the execution for P2 completes, **both the automated results are copied into the TCM table**, not taking into account the completed timestamp for the automated result of P1, although it was less than that of the manual run. 
 
   - But the sync job, which is responsible for fetching automated results from TCM to TFS, considers the completed timestamp for the automated run and shows the correct outcome. 
 
-- Thus, in this scenario, TFS point table has the correct outcome for the test points, whereas, TCM pointResultDetails table has the incorrect outcome for one of the test points. 
+- Thus, in this scenario, TFS table has the correct outcome for the test points, whereas, TCM table has the incorrect outcome for one of the test points. 
 
 #### Fix:
-- This was fixed by this [change](https://dev.azure.com/mseng/AzureDevOps/_git/AzureDevOps/pullrequest/568942?_a=files) made to the sprocs, responsible for copying the outcomes to pointResultDetails, upon run completion. 
+- This was fixed by a change made to the sprocs, responsible for copying the outcomes to TCM table, upon run completion. 
  
-- After this fix, outcomes were copied to pointResultDetails table only after comparing the completed timestamp in TestResults table with the last updated timestamp in pointResultDetails table. 
+- After this fix, outcomes were copied to TCM table only after comparing the completed timestamp in TestResults table with the last updated timestamp in TCM table. 
  
 - **Regression**: The above fix resolved the issue but caused another regression, which caused Charts and Execute tab to go out of sync. 
  
@@ -148,7 +154,7 @@ Currently working on fix for this scenario. The issue arises since TFS contains 
 #### Reason:
 ##### When the web-runner is opened and closed for a test point previously reset to active state - 
 
-- Whenever a test point is reset to active, the active state of the test points is saved only in TFS point table and not in the TCM tables. This was the major cause of this discrepancy. 
+- Whenever a test point is reset to active, the active state of the test points is saved only in TFS table and not in the TCM tables. This was the major cause of this discrepancy. 
 
 - Suppose, **at time T1, a point P1 was provided with an outcome, say passed**. This outcome gets saved both in TFS and TCM. Now, **at time T2, the point was reset to active**. 
 
@@ -162,9 +168,9 @@ Currently working on fix for this scenario. The issue arises since TFS contains 
 
 
 #### Fix:
-- The first [change](https://dev.azure.com/mseng/AzureDevOps/_git/AzureDevOps/pullrequest/566883?path=%2FTcm%2FShared%2FSql%2FPlans%2FSProcs%2Fprc_UpdateTestPointOutcome.sql&_a=files) was to add a check while copying the previous outcome from TCM to ensure that the point was not reset to active after the completion of the previous result. This fixed the issue with Progress Reports. 
+- The first change was to add a check while copying the previous outcome from TCM to ensure that the point was not reset to active after the completion of the previous result. This fixed the issue with Progress Reports. 
 
-- The second [change](https://dev.azure.com/mseng/AzureDevOps/_git/AzureDevOps/pullrequest/567469?path=%2FTcm%2FShared%2FSql%2FResults%2FSprocs%2Fprc_GetTestExecutionReport2.sql&_a=files) was to take into account the last reset to active timestamp while fetching data for Charts.
+- The second change was to take into account the last reset to active timestamp while fetching data for Charts.
 
 ![Discrepancy Scenario 3](../images/azure-test-plans-scenarios/discrepancy-scenario3.png)
  
